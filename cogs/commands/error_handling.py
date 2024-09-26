@@ -4,7 +4,7 @@ from discord.ext import commands
 from discord.commands import slash_command
 
 
-class Base(commands.Cog):
+class error_handling(commands.Cog):
     def __init__(self, bot: discord.Bot):
         self.bot = bot
 
@@ -21,4 +21,4 @@ class Base(commands.Cog):
 
 
 def setup(bot: discord.Bot):
-    bot.add_cog(Base(bot))
+    bot.add_cog(error_handling(bot))
