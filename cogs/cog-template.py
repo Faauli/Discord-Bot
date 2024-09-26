@@ -1,11 +1,11 @@
 import discord
 
 
-class Base(commands.Cog):
+class template(commands.Cog):
     def __init__(self, bot: discord.Bot):
         self.bot = bot
       
     #Add code
 
 def setup(bot: discord.Bot):
-    bot.add_cog(Base(bot))
+    bot.add_cog(template(bot))
