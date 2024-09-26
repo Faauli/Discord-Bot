@@ -1,10 +1,11 @@
+# Imports
 import discord
 import os
-from dotenv import load_dotenv
+from dotenv import load_dotenv # Run 'pip install python-dotenv' in the terminal
 
-intents = discord.Intents.default()
-status = discord.Status.online
-activity = discord.Activity(type=discord.ActivityType.custom, name="😀 Bot Status")
+intents = discord.Intents.default() # Sets the Intents for the Bot
+status = discord.Status.online # Sets the status to online, can also be set to dnd, idle, offline, invisible, or streaming.
+activity = discord.Activity(type=discord.ActivityType.custom, name="😀 Bot Status") # Sets the activity to custom, can also be set to playing, streaming, listening, watching, or competing.
 
 bot = discord.Bot(
                   intents=intents,
@@ -21,9 +22,18 @@ async def on_ready():
 
 
 if __name__ == "__main__":
-    for filename in os.listdir("cogs"):
-        if filename.endswith(".py"):
-            bot.load_extension(f"cogs.{filename[:-3]}")
+    # Recursively loads all Cogs from the 'cogs' folder and its subfolders
+    for root, dirs, files in os.walk("cogs"):
+        for filename in files:
+            if filename.endswith(".py"):
+                # Creates the module path for the Cog (e.g., 'cogs.subfolder.cogname')
+                cog_path = os.path.join(root, filename[:-3]).replace(os.sep, ".")
+                try:
+                    bot.load_extension(cog_path)
+                    print(f"Loaded cog: {cog_path}")
+                except Exception as e:
+                    print(f"Error loading cog {cog_path}: {e}")
+
 
     load_dotenv()
-    bot.run(os.getenv("TOKEN"))
+    bot.run(os.getenv("TOKEN")) 
