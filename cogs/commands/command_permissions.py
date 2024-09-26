@@ -7,8 +7,10 @@ class Base(commands.Cog):
     def __init__(self, bot: discord.Bot):
         self.bot = bot
 
-    @slash_command(description="command1")
-    @discord.guild_only() #Command only can be used at guilds
+    @slash_command(description="command2")
+    @default_permissions(manage_messages=True) # Specifies the permissions required to use the command
+    @discord.guild_only() # The command can only be used on servers
+    @is_nsfw() # Can only be used by users aged 18 and over, and only in 18+ channels
     async def hello(self, ctx: discord.ApplicationContext):
         await ctx.respond(f"This is a slash command")
 
