@@ -1,2 +1,4 @@
 py-cord
 ezcord
+python-dotenv
+pymongo

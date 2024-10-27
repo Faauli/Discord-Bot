@@ -8,7 +8,7 @@ class slash_command(commands.Cog):
         self.bot = bot
 
     @slash_command(description="command1")
-    async def hello(self, ctx: discord.ApplicationContext):
+    async def hello1(self, ctx: discord.ApplicationContext):
         await ctx.respond(f"This is a slash command")
 
 

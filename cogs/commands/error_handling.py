@@ -10,7 +10,7 @@ class error_handling(commands.Cog):
 
     #Slash Command
     @slash_command(description="command3")
-    async def hello(self, ctx: discord.ApplicationContext):
+    async def hello3(self, ctx: discord.ApplicationContext):
         member = ctx.author
         try:
             await member.edit(nick="Nickname")

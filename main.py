@@ -3,15 +3,19 @@ import discord
 import os
 from dotenv import load_dotenv # Run 'pip install python-dotenv' in the terminal
 
-intents = discord.Intents.default() # Sets the Intents for the Bot
-status = discord.Status.online # Sets the status to online, can also be set to dnd, idle, offline, invisible, or streaming.
-activity = discord.Activity(type=discord.ActivityType.custom, name="😀 Bot Status") # Sets the activity to custom, can also be set to playing, streaming, listening, watching, or competing.
+load_dotenv()
+
+intents = discord.Intents.default()  # Sets the Intents for the Bot
+intents.message_content = True  # Enable additional intents if needed
+
+status = discord.Status.online  # Sets the status to online, can also be set to dnd, idle, offline, invisible, or streaming.
+activity = discord.Activity(type=discord.ActivityType.custom, name="😀 Bot Status")  # Sets the activity
 
 bot = discord.Bot(
-                  intents=intents,
-                  status=status,
-                  activity=activity
-                 )
+    intents=intents,
+    status=status,
+    activity=activity
+)
 
 
 @bot.event
@@ -35,5 +39,4 @@ if __name__ == "__main__":
                     print(f"Error loading cog {cog_path}: {e}")
 
 
-    load_dotenv()
-    bot.run(os.getenv("TOKEN")) 
+bot.run(os.getenv("TOKEN"))  # Ensure TOKEN is set in your .env file
