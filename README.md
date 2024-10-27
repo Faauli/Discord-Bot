@@ -1,6 +1,6 @@
 # Discord Bot
 
-A simple Discord bot built with Python using the `py-cord` library. This bot can perform various tasks on your Discord server.
+A simple Discord bot built with Python using the `py-cord` library.
 
 ## Features
 
