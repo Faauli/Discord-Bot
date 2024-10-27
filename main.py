@@ -1,7 +1,7 @@
 # Imports
 import discord
 import os
-from dotenv import load_dotenv # Run 'pip install python-dotenv' in the terminal
+from dotenv import load_dotenv
 
 load_dotenv()
 
